@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: syslog-ng
+  name: syslog-ng
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: syslog-ng
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yaml
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: syslog-ng
+    spec:
+      containers:
+        - env:
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: Europe/Athens
+          image: lscr.io/linuxserver/syslog-ng:latest
+          name: syslog-ng
+          ports:
+            - containerPort: 5514
+              protocol: UDP
+            - containerPort: 6601
+            - containerPort: 6514
+          resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: syslog-ng-claim0
+            - mountPath: /var/log
+              name: syslog-ng-claim1
+      restartPolicy: Always
+      volumes:
+        - name: syslog-ng-claim0
+          persistentVolumeClaim:
+            claimName: syslog-ng-claim0
+        - name: syslog-ng-claim1
+          persistentVolumeClaim:
+            claimName: syslog-ng-claim1
+status: {}
