@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: pihole
+        app: syslog-ng
     spec:
       containers:
         - env:
