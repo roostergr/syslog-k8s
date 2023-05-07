@@ -1,28 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yaml
-    kompose.version: 1.26.1 (HEAD)
-  creationTimestamp: null
   labels:
-    io.kompose.service: syslog-ng
+    app: syslog-ng
   name: syslog-ng
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: syslog-ng
+      ap: syslog-ng
   strategy:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
       labels:
-        io.kompose.service: syslog-ng
+        app: syslog-ng
     spec:
       containers:
         - env:
@@ -53,4 +45,3 @@ spec:
         - name: syslog-ng-claim1
           persistentVolumeClaim:
             claimName: syslog-ng-claim1
-status: {}
