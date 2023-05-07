@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "nfs-csi"
   name: syslog-ng-cfg
 spec:
   accessModes:
