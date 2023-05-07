@@ -1,10 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: syslog-ng-claim1
-  name: syslog-ng-claim1
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "nfs-csi"
+  name: syslog-ng-nfs
 spec:
   accessModes:
     - ReadWriteOnce
