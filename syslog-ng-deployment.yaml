@@ -8,9 +8,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      ap: syslog-ng
+      app: syslog-ng
   strategy:
     type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pihole
     spec:
       containers:
         - env:
