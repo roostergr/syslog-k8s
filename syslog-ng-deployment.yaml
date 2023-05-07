@@ -34,14 +34,14 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /config
-              name: syslog-ng-claim0
+              name: syslog-ng-cfg
             - mountPath: /var/log
-              name: syslog-ng-claim1
+              name: syslog-ng-logs
       restartPolicy: Always
       volumes:
-        - name: syslog-ng-claim0
+        - name: syslog-ng-cfg
           persistentVolumeClaim:
-            claimName: syslog-ng-claim0
-        - name: syslog-ng-claim1
+            claimName: syslog-ng-cfg
+        - name: syslog-ng-logs
           persistentVolumeClaim:
-            claimName: syslog-ng-claim1
+            claimName: syslog-ng-logs
