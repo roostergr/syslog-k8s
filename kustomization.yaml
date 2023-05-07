@@ -5,6 +5,6 @@ metadata:
 
 resources:
   - syslog-ng-deployment.yaml
-  - syslof-ng-service.yaml
+  - syslog-ng-service.yaml
   - syslog-ng-claim1-persistentvolumeclaim.yaml
   - syslog-ng-claim0-persistentvolumeclaim.yaml
