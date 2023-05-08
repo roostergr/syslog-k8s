@@ -6,7 +6,7 @@ metadata:
   name: syslog-ng-logs
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
