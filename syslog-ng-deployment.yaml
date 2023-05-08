@@ -31,7 +31,10 @@ spec:
               protocol: UDP
             - containerPort: 6601
             - containerPort: 6514
-          resources: {}
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
           volumeMounts:
             - mountPath: /config
               name: syslog-ng-cfg
