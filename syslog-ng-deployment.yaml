@@ -16,8 +16,6 @@ spec:
       labels:
         app: syslog-ng
     spec:
-      securityContext:
-        allowPrivilegeEscalation: true
       containers:
         - env:
             - name: PGID
