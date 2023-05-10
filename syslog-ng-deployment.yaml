@@ -16,12 +16,19 @@ spec:
       labels:
         app: syslog-ng
     spec:
+      initContainers:
+      - name: chown
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /config"]
+        volumeMounts:
+        - name: syslog-ng-cfg
+          mountPath: /config
       containers:
         - env:
             - name: PGID
-              value: "501"
+              value: "1000"
             - name: PUID
-              value: "501"
+              value: "1000"
             - name: TZ
               value: Europe/Athens
           image: lscr.io/linuxserver/syslog-ng:latest
