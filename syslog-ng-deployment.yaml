@@ -16,13 +16,6 @@ spec:
       labels:
         app: syslog-ng
     spec:
-      initContainers:
-      - name: chown
-        image: busybox
-        command: ["sh", "-c", "chown -R root:root /config"]
-        volumeMounts:
-        - name: syslog-ng-cfg
-          mountPath: /config
       containers:
         - env:
             - name: PGID
