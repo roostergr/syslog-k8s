@@ -16,16 +16,12 @@ spec:
       labels:
         app: syslog-ng
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsUser: 100
       containers:
         - env:
             - name: PGID
-              value: "1000"
+              value: "1001"
             - name: PUID
-              value: "1000"
+              value: "1001"
             - name: TZ
               value: Europe/Athens
           image: lscr.io/linuxserver/syslog-ng:latest
