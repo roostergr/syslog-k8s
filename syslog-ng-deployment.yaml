@@ -22,9 +22,9 @@ spec:
       containers:
         - env:
             - name: PGID
-              value: "1000"
+              value: "0"
             - name: PUID
-              value: "1000"
+              value: "0"
             - name: TZ
               value: Europe/Athens
           image: lscr.io/linuxserver/syslog-ng:latest
