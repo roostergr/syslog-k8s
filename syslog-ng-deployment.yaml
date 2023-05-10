@@ -16,6 +16,9 @@ spec:
       labels:
         app: syslog-ng
     spec:
+      securityContext:
+        runAsGroup: 2002
+        runAsUser: 1003
       containers:
         - env:
             - name: PGID
