@@ -17,9 +17,9 @@ spec:
         app: syslog-ng
     spec:
       securityContext:
-        fsGroup: 100
-        runAsGroup: 100
-        runAsUser: 405
+        fsGroup: 1000
+        runAsGroup: 1000
+        runAsUser: 1000
       containers:
         - env:
             - name: PGID
