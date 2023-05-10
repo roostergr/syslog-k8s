@@ -16,12 +16,15 @@ spec:
       labels:
         app: syslog-ng
     spec:
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsUser: 0
       containers:
         - env:
             - name: PGID
-              value: "100"
+              value: "1000"
             - name: PUID
-              value: "100"
+              value: "1000"
             - name: TZ
               value: Europe/Athens
           image: lscr.io/linuxserver/syslog-ng:latest
