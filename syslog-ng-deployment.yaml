@@ -44,7 +44,7 @@ spec:
       volumes:
         - name: syslog-ng-cfg
           persistentVolumeClaim:
-            claimName: syslog-ng-cfg
+            claimName: syslog-cfg
         - name: syslog-ng-logs
           persistentVolumeClaim:
             claimName: syslog-ng-logs
