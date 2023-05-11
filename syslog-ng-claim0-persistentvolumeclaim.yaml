@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: syslog-ng-cfg
+  name: syslog-cfg
 spec:
   accessModes:
     - ReadWriteOnce
