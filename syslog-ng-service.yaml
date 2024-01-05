@@ -18,5 +18,4 @@ spec:
       targetPort: 6514
   selector:
     app: syslog-ng
-  loadBalancerIP: 192.168.10.205
   type: LoadBalancer
